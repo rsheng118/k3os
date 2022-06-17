@@ -27,11 +27,6 @@ ENV KERNEL_IMG=linux-image-5.15.0-37-generic
 ENV KERNEL_MODULE=linux-modules-5.15.0-37-generic
 ENV KERNEL_MODULE_EXTRA=linux-modules-extra-5.15.0-37-generic
 
-# ENV URL=https://github.com/rancher/k3os-kernel/releases/download/5.4.0-88.99-rancher1
-# ENV KERNEL_XZ=${URL}/kernel-generic_${ARCH}.tar.xz
-# ENV KERNEL_EXTRA_XZ=${URL}/kernel-extra-generic_${ARCH}.tar.xz
-# ENV KERNEL_HEADERS_XZ=${URL}/kernel-headers-generic_${ARCH}.tar.xz
-
 # Download kernel
 RUN mkdir -p /usr/src && cd /usr/src
 RUN apt download ${KERNEL_HEADERS}
@@ -39,10 +34,6 @@ RUN apt download ${KERNEL_FIRMWARE}
 RUN apt download ${KERNEL_IMG}
 RUN apt download ${KERNEL_MODULE}
 RUN apt download ${KERNEL_MODULE_EXTRA}
-
-# RUN curl -fL $KERNEL_XZ -o /usr/src/kernel.tar.xz
-# RUN curl -fL $KERNEL_EXTRA_XZ -o /usr/src/kernel-extra.tar.xz
-# RUN curl -fL $KERNEL_HEADERS_XZ -o /usr/src/kernel-headers.tar.xz
 
 # Extract to /usr/src/root
 RUN mkdir -p /usr/src/root && \
@@ -52,10 +43,6 @@ RUN mkdir -p /usr/src/root && \
     dpkg-deb -x /linux-image*.deb /usr/src/root/ && \
     dpkg-deb -x /linux-modules-5*.deb /usr/src/root/ && \
     dpkg-deb -x /linux-modules-extra*.deb /usr/src/root/
-
-    # tar xvf /usr/src/kernel.tar.xz && \
-    # tar xvf /usr/src/kernel-extra.tar.xz && \
-    # tar xvf /usr/src/kernel-headers.tar.xz
 
 # Create initrd
 RUN mkdir /usr/src/initrd && \
