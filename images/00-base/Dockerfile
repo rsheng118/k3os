@@ -1,5 +1,5 @@
 ### BASE ###
-FROM alpine:3.14 as base
+FROM alpine:3.14.6 as base
 ARG ARCH
 RUN apk --no-cache add \
     bash \
@@ -61,6 +61,7 @@ RUN apk --no-cache add \
     tzdata \
     util-linux \
     vim \
+    nano \
     wireguard-tools \
     wpa_supplicant \
     xfsprogs \

@@ -1,0 +1,1 @@
+{"buildTargets":[".PHONY","build","ci","default","entry","images","make","package","release","run","run-qemu","test","validate","version"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
