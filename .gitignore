@@ -10,7 +10,15 @@
 /.docker/
 .vscode
 
+# dapper
+.dapper
+.dapper*
+
 # Packer and vagrant
 .vagrant/
 packer_cache/
 *.box
+
+# Mac
+.DS_Store
+*/.DS_Store
