@@ -4,7 +4,6 @@ ARG ARCH
 RUN apk --no-cache add \
     bash \
     bash-completion \
-    apparmor \
     blkid \
     busybox-initscripts \
     ca-certificates \
